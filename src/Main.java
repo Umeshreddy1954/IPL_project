@@ -34,7 +34,13 @@ public class Main {
 //        System.out.println(sum);
 
 //        question 3:
-        
-
+        Q3 q3=new Q3();
+        Map<String,Integer> h=q3.extraruns(matchList,deliveryList);
+        int sum=0;
+        for(String key:h.keySet()){
+            System.out.println(key+" "+h.get(key));
+            sum+=h.get(key);
+        }
+        System.out.println(sum);
     }
 }
