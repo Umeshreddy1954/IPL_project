@@ -2,12 +2,12 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args){
-        csvReader mr=new csvReader();
-        Scanner sc=new Scanner(System.in);
-        String matches_file_path="resources/matches.csv";
-        String deliveries_file_path="resources/deliveries.csv";
-        List<Matches> matchList=mr.matchreader(matches_file_path);
-        List<Deliveries> deliveryList=mr.deliveryreader(deliveries_file_path);
+//        csvReader mr=new csvReader();
+          Scanner sc=new Scanner(System.in);
+//        String matches_file_path="resources/matches.csv";
+//        String deliveries_file_path="resources/deliveries.csv";
+//        List<Matches> matchList=mr.matchreader(matches_file_path);
+//        List<Deliveries> deliveryList=mr.deliveryreader(deliveries_file_path);
 //        System.out.print(matchList);
 
 //        question 1:
@@ -45,13 +45,15 @@ public class Main {
 
 //        question 4:
 
-        Q4 q4=new Q4();
-        int k=sc.nextInt();
-        PriorityQueue<Economy> pq=q4.economicbowlers(matchList,deliveryList,k);
-        ArrayList<Economy> arr=new ArrayList<>(pq);
-        arr.sort(Comparator.comparingDouble(Economy::getEconomyRate));
-        for(Economy e:arr){
-            System.out.println(e.getName()+" "+e.getEconomyRate());
-        }
+//        Q4 q4=new Q4();
+//        int k=sc.nextInt();
+//        PriorityQueue<Economy> pq=q4.economicbowlers(matchList,deliveryList,k);
+//        ArrayList<Economy> arr=new ArrayList<>(pq);
+//        arr.sort(Comparator.comparingDouble(Economy::getEconomyRate));
+//        for(Economy e:arr){
+//            System.out.println(e.getName()+" "+e.getEconomyRate());
+//        }
+//        Pattern.pat();
+        Pattern2.rec();
     }
 }
