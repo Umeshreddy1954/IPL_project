@@ -4,16 +4,17 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class csvReader {
-    public List<Matches> matchreader(String filepath){
+public class CsvReader {
+
+//    reading matches.csv
+
+    public List<Matches> readMatches(String filepath){
         List<Matches> lst=new ArrayList<>();
         try(BufferedReader br=new BufferedReader(new FileReader(filepath))){
             br.readLine();
             String line;
             while((line=br.readLine())!=null){
-//                System.out.println(line);
                 String[] data=line.split(",",-1);
-//                System.out.print(data.length);
                 int id = Integer.parseInt(data[0]);
                 int season = Integer.parseInt(data[1]);
                 String city = data[2];
@@ -29,9 +30,7 @@ public class csvReader {
                 int winByWickets = Integer.parseInt(data[12]);
                 String playerOfMatch = data[13];
                 String venue = data[14];
-                int n=data.length;
                 String umpire1 = data[15];
-
                 String umpire2 = data[16];
                 Matches match = new Matches(
                         id, season, city, date,
@@ -46,25 +45,22 @@ public class csvReader {
             }
         }
         catch(Exception e) {
-//            e.printStackTrace();
+            throw new RuntimeException("There is an Error while reading matches.csv "+filepath,e);
         }
         return lst;
     }
 
 
+//     reading deliveries.csv
 
 
-
-
-
-    public List<Deliveries> deliveryreader(String filepath){
+    public List<Deliveries> readDeliveries(String filepath){
         List<Deliveries> lst=new ArrayList<>();
         try(BufferedReader br=new BufferedReader(new FileReader(filepath))){
             br.readLine();
             String line;
             while((line=br.readLine())!=null){
                 String[] data=line.split(",",-1);
-//                System.out.println(line);
                 int matchId = Integer.parseInt(data[0]);
                 int inning = Integer.parseInt(data[1]);
                 String battingTeam = data[2];
@@ -100,7 +96,7 @@ public class csvReader {
             }
         }
         catch(Exception e) {
-//            e.printStackTrace();
+            throw new RuntimeException("There is an Error while reading deliveries.csv "+filepath,e);
         }
         return lst;
     }

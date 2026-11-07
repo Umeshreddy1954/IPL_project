@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Q3 {
 
@@ -9,7 +6,7 @@ public class Q3 {
 
     public Map<String, Integer> extraruns(List<Matches> matchList, List<Deliveries> deliveryList) {
         Map<String,Integer> h=new HashMap<>();
-        List<Integer> seasonIds=new ArrayList<>();
+        Set<Integer> seasonIds=new HashSet<>();
         for(Matches m:matchList){
             if(m.getSeason()==2016){
                 seasonIds.add(m.getId());

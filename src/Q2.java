@@ -8,8 +8,11 @@ public class Q2 {
 
     public Map<String,Integer> teamMatches(List<Matches> lst){
         Map<String,Integer> h=new HashMap<>();
-        for(Matches m:lst){
-            h.put(m.getWinner(),h.getOrDefault(m.getWinner(),0)+1);
+        for(Matches match:lst){
+            String winner=match.getWinner();
+            if(winner!=null && !winner.isEmpty()) {
+                h.put(match.getWinner(), h.getOrDefault(match.getWinner(), 0) + 1);
+            }
         }
         return h;
     }

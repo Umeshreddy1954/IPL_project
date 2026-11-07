@@ -1,9 +1,8 @@
 import java.util.*;
 
 public class Questions {
-    public static void allquestions(List<Matches> matchList, List<Deliveries> deliveryList){
+    public static void allquestions(List<Matches> matchList, List<Deliveries> deliveryList,int numberOfBowlers,int numberOfBatters){
 
-        Scanner sc=new Scanner(System.in);
 
 //        question 1: Matches played per year
 
@@ -41,8 +40,6 @@ public class Questions {
 
         System.out.println("---------Question 4");
         Q4 q4=new Q4();
-        System.out.println("Enter number of bowlers:");
-        int numberOfBowlers=sc.nextInt();
         PriorityQueue<Economy> pq_economicBowlers=q4.economicbowlers(matchList,deliveryList,numberOfBowlers);
         ArrayList<Economy> arr_economicBowlers=new ArrayList<>(pq_economicBowlers);
         arr_economicBowlers.sort(Comparator.comparingDouble(Economy::getEconomyRate));
@@ -55,8 +52,6 @@ public class Questions {
 
         System.out.println("---------Question 5");
         Q5 q5=new Q5();
-        System.out.println("Enter number of batters:");
-        int numberOfBatters=sc.nextInt();
         PriorityQueue<Map.Entry<String,Integer>> pq_topBatter=q5.topbatsman(matchList,deliveryList,numberOfBatters);
         ArrayList<Map.Entry<String,Integer>> arr_topbatters=new ArrayList<>(pq_topBatter);
         arr_topbatters.sort((a,b)->b.getValue()-a.getValue());
